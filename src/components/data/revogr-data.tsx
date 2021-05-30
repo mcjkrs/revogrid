@@ -24,6 +24,10 @@ export class RevogrData {
   @Prop() range: boolean;
   @Prop() canDrag: boolean;
 
+  @Prop() rowFormatter: (row: Object) => Object;
+  @Prop() rowStyle: (row: Object) => Object;
+  @Prop() test: number;
+
   @Prop() rowClass: string;
   @Prop() rowSelectionStore: Observable<Selection.SelectionStoreState>;
   @Prop() viewportRow: Observable<RevoGrid.ViewportState>;
@@ -42,6 +46,14 @@ export class RevogrData {
   }
 
   render() {
+    console.log("RenderXXXX")
+
+    if(!this.test){
+      this.test = 0;
+    } else {
+      this.test += 1;
+
+    }
     const rows = this.viewportRow.get('items');
     const cols = this.viewportCol.get('items');
     if (!this.columnService.columns.length || !rows.length || !cols.length) {
@@ -61,15 +73,34 @@ export class RevogrData {
       /** grouping end */
 
       const cells: (VNode | string | void)[] = [];
-      let rowClass = this.rowClass ? this.columnService.getRowClass(row.itemIndex, this.rowClass) : '';
+      let isEven = (row.itemIndex % 2 == 0);
+
+      let rowClass = this.rowClass ? this.columnService.getRowClass(row.itemIndex, this.rowClass) : (isEven ? 'r-ev' : 'r-odd');
       if (range && row.itemIndex >= range.y && row.itemIndex <= range.y1) {
         rowClass += ' focused-row';
       }
       for (let col of cols) {
         cells.push(this.getCellRenderer(row, col, this.canDrag, /** grouping apply*/ this.columnService.hasGrouping ? depth : 0));
       }
+
+      if(this.rowFormatter){
+        console.log("Row formatter yay")
+        let extraClass = this.rowFormatter(dataRow);
+        rowClass += " " + extraClass;
+      } else {
+        console.log("No row formatter:(")
+      }
+
+      let extraStyle = {};
+      if(this.rowStyle){
+        console.log("Style formatter yay")
+        extraStyle = this.rowStyle(dataRow);
+      } else {
+        console.log("No style formatter:(")
+      }
+
       rowsEls.push(
-        <RowRenderer rowClass={rowClass} size={row.size} start={row.start}>
+        <RowRenderer  rowClass={rowClass} size={row.size} start={row.start} extraStyle={extraStyle}>
           {cells}
         </RowRenderer>,
       );

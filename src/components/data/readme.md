@@ -14,7 +14,10 @@
 | `range`             | `range`     |                                                                 | `boolean`                                                      | `undefined` |
 | `readonly`          | `readonly`  |                                                                 | `boolean`                                                      | `undefined` |
 | `rowClass`          | `row-class` |                                                                 | `string`                                                       | `undefined` |
+| `rowFormatter`      | --          |                                                                 | `(row: Object) => Object`                                      | `undefined` |
 | `rowSelectionStore` | --          |                                                                 | `ObservableMap<SelectionStoreState>`                           | `undefined` |
+| `rowStyle`          | --          |                                                                 | `(row: Object) => Object`                                      | `undefined` |
+| `test`              | `test`      |                                                                 | `number`                                                       | `undefined` |
 | `viewportCol`       | --          |                                                                 | `ObservableMap<ViewportState>`                                 | `undefined` |
 | `viewportRow`       | --          |                                                                 | `ObservableMap<ViewportState>`                                 | `undefined` |
 

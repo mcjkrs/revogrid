@@ -5,7 +5,7 @@ import { reactOutputTarget } from '@stencil/react-output-target';
 import { vueOutputTarget } from '@stencil/vue-output-target';
 import { svelteOutputTarget } from '@stencil/svelte-output-target';
 
-const componentCorePackage = '@revolist/revogrid';
+const componentCorePackage = '@entestat/revogrid2';
 const directivesProxyFile = (name: string) => `../revogrid-proxy/${name}/src/revogrid.ts`;
 
 export const config: Config = {

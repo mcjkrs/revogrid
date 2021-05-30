@@ -201,7 +201,10 @@ export namespace Components {
         "range": boolean;
         "readonly": boolean;
         "rowClass": string;
+        "rowFormatter": (row: Object) => Object;
         "rowSelectionStore": Observable<Selection.SelectionStoreState>;
+        "rowStyle": (row: Object) => Object;
+        "test": number;
         "viewportCol": Observable<RevoGrid.ViewportState>;
         "viewportRow": Observable<RevoGrid.ViewportState>;
     }
@@ -638,7 +641,10 @@ declare namespace LocalJSX {
         "range"?: boolean;
         "readonly"?: boolean;
         "rowClass"?: string;
+        "rowFormatter"?: (row: Object) => Object;
         "rowSelectionStore"?: Observable<Selection.SelectionStoreState>;
+        "rowStyle"?: (row: Object) => Object;
+        "test"?: number;
         "viewportCol"?: Observable<RevoGrid.ViewportState>;
         "viewportRow"?: Observable<RevoGrid.ViewportState>;
     }

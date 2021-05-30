@@ -1,19 +1,19 @@
 {
-  "name": "@revolist/revogrid",
-  "version": "2.9.6",
-  "description": "Virtual reactive data grid component - RevoGrid.",
+  "name": "@entestat/revogrid2",
+  "version": "2.9.14",
+  "description": "Virtual reactive data grid component - fork of RevoGrid with small improvements",
   "license": "MIT",
   "directories": {
     "doc": "docs"
   },
   "author": "revolist",
-  "homepage": "https://github.com/revolist/revogrid#readme",
+  "homepage": "https://github.com/mcjkrs/revogrid",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/revolist/revogrid.git"
+    "url": "git+https://github.com/mcjkrs/revogrid.git"
   },
   "bugs": {
-    "url": "https://github.com/revolist/revogrid/issues"
+    "url": "https://github.com/mcjkrs/revogrid/issues"
   },
   "keywords": [
     "revo-grid",
